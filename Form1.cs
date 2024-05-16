@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -26,6 +27,7 @@ namespace TransactionDemo
             InitializeComponent();
         }
 
+        List<Button> buttonList = new List<Button>();
         private void button1_Click(object sender, EventArgs e)
         {
             string plate_no1 = textBox1.Text;
@@ -37,20 +39,34 @@ namespace TransactionDemo
                 $"VALUES('{plate_no}', '{vehicle_type}', '{vehicle_brand}',{active})";
             exeCommands(command);
             showVehicles();
+            generateButtons();
+            foreach (Button buttons in buttonList)
+            {
+                buttons.Enabled = true;
+            }
             parkingslotsPanel.Show();
             updateSlot();
-            if (gf1.Enabled == false && gf2.Enabled == false && gf3.Enabled == false && gf4.Enabled == false && gf5.Enabled == false && gf6.Enabled == false)
+            
+        }
+        // Generate Parking Slot Buttons
+        private void generateButtons()
+        {
+            for (int i = 0; i < 16; i++)
             {
-                MessageBox.Show("All Parking Slots are OCCUPIED", "ParkWise Demo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                string command2 = $"DELETE FROM Vehicles WHERE pn = '{plate_no}'";
-                exeCommands(command2);
-                showVehicles();
+                Button button = new Button();
+                button.SetBounds(0, 0, 99, 92);
+                button.BackColor = Color.MediumSpringGreen;
+                button.Cursor = Cursors.Hand;
+                button.Text = $"GF{i}";
+                button.Click += buttons_Click;
+                flowLayoutPanel1.Controls.Add(button);
+                buttonList.Add(button);
             }
         }
 
         private void updateSlot()
         {
-            for (int i = 1; i <= 6; i++)
+            for (int i = 0; i <= buttonList.Count; i++)
             {
                 searchPSlot(i);
             }
@@ -127,12 +143,7 @@ namespace TransactionDemo
         private void closeParkingSlot_Click(object sender, EventArgs e)
         {
             parkingslotsPanel.Hide();
-            gf1.Enabled = true;
-            gf2.Enabled = true;
-            gf3.Enabled = true;
-            gf4.Enabled = true;
-            gf5.Enabled = true;
-            gf6.Enabled = true;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -153,101 +164,31 @@ namespace TransactionDemo
             return slotname;
         }
 
-        private void gf1_Click(object sender, EventArgs e)
+       private void buttons_Click(object sender, EventArgs e)
         {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(dg == DialogResult.Yes)
+            int counter = 0;
+            Button clickedButton = (Button)sender;
+            foreach(Button buttons in buttonList)
             {
-                string slotname = "GF-1";
-                setSlotname(slotname);
-                int slot = 1;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
+                if(buttons == clickedButton)
+                {
+                    DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dg == DialogResult.Yes)
+                    {
+                        
+                        insertParkingSlot(getVehicleID(), $"GF-{counter}", counter, datetime);
+                        parkingslotsPanel.Hide();
+                        showTransactions();
+                        MessageBox.Show($"You have successfully parked in GF-{counter}");
+                        buttons.Enabled = false;
+                        buttons.BackColor = Color.DarkRed;
+                        parkingslotsPanel.Hide();
+                    }
+                }
+                else
+                    counter++;
             }
-            
-        }
-
-        private void gf2_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-            {
-                string slotname = "GF-2";
-                setSlotname(slotname);
-                int slot = 2;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
-            }
-        }
-
-        private void gf3_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-            {
-                string slotname = "GF-3";
-                setSlotname(slotname);
-                int slot = 3;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
-            }
-        }
-
-        private void gf4_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-            {
-                string slotname = "GF-4";
-                setSlotname(slotname);
-                int slot = 4;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
-            }
-        }
-
-        private void gf5_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-            {
-                string slotname = "GF-5";
-                setSlotname(slotname);
-                int slot = 5;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
-            }
-        }
-
-        private void gf6_Click(object sender, EventArgs e)
-        {
-            DialogResult dg = MessageBox.Show("Confirm Slot", "ParkWise Demo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dg == DialogResult.Yes)
-            {
-                string slotname = "GF-6";
-                setSlotname(slotname);
-                int slot = 6;
-                insertParkingSlot(getVehicleID(), slotname, slot, datetime);
-                parkingslotsPanel.Hide();
-                showTransactions();
-                MessageBox.Show($"You have successfully parked in {getSlotname()}");
-                parkingslotsPanel.Hide();
-            }
+           
         }
         private void insertParkingSlot(int p_id, string p_loc, int p_slot, DateTime datetime)
         {
@@ -296,18 +237,15 @@ namespace TransactionDemo
             }
         }
 
-        private int slot1, slot2, slot3, slot4, slot5, slot6;
 
         private void button2_Click(object sender, EventArgs e)
         {
             parkingslotsPanel.Show();
+            foreach (Button buttons in buttonList)
+            {
+                buttons.Enabled = false;
+            }
             updateSlot();
-            gf1.Enabled = false;
-            gf2.Enabled = false;
-            gf3.Enabled = false;
-            gf4.Enabled = false;
-            gf5.Enabled = false;
-            gf6.Enabled = false;
         }
         // Park-out Button
         private void button6_Click(object sender, EventArgs e)
@@ -335,7 +273,7 @@ namespace TransactionDemo
 
                         string extractedStringID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                         int converterdStringID = Convert.ToInt32(extractedStringID);
-                        updateButtonColors(converterdStringID);
+                      //  updateButtonColors(converterdStringID);
                         string command4 = $"UPDATE p_trans SET p_slot = {inactive} WHERE p_id = {converterdStringID}";
                         exeCommands(command4);
 
@@ -352,7 +290,7 @@ namespace TransactionDemo
             else
                 MessageBox.Show("Select Vehicles to Park-out");
         }
-        private void updateButtonColors(int p_id)
+      /* private void updateButtonColors(int p_id)
         {
             string command = $"SELECT p_slot FROM p_trans WHERE  p_id = {p_id}";
             string connectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = ParkingVehicles; Integrated Security = True; Connect Timeout = 30; Encrypt = False;";
@@ -404,7 +342,7 @@ namespace TransactionDemo
                     }
                 }
             }
-        }
+        }*/
         // Show Payments
         private void button7_Click(object sender, EventArgs e)
         {
@@ -450,40 +388,20 @@ namespace TransactionDemo
 
                             // Retrieve the stored password from the reader
                             retrievedSlotNo = reader.GetInt32(0);
-
-                            switch (retrievedSlotNo)
+                            int counter = 0;
+                            foreach(Button buttons in buttonList)
                             {
-                                case 1:
-                                    gf1.Enabled = false;
-                                    gf1.BackColor = Color.Red;
+                                if (retrievedSlotNo == counter)
+                                {
+                                    buttons.BackColor = Color.DarkRed;
+                                    buttons.Enabled = false;
                                     break;
-                                case 2:
-                                    gf2.Enabled = false;
-                                    gf2.BackColor = Color.Red;
-                                    break;
-                                case 3:
-                                    gf3.Enabled = false;
-                                    gf3.BackColor = Color.Red;
-                                    break;
-                                case 4:
-                                    gf4.Enabled = false;
-                                    gf4.BackColor = Color.Red;
-                                    break;
-                                case 5:
-                                    gf5.Enabled = false;
-                                    gf5.BackColor = Color.Red;
-                                    break;
-                                case 6:
-                                    gf6.Enabled = false;
-                                    gf6.BackColor = Color.Red;
-                                    break;
+                                }
+                                else
+                                    counter++;
                             }
 
                         }
-                       /* else
-                       // {
-                            MessageBox.Show("User does not exist!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                       // }*/
                     }
                 }
             }

@@ -45,31 +45,23 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.parkingslotsPanel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.gf1 = new System.Windows.Forms.Button();
-            this.gf2 = new System.Windows.Forms.Button();
-            this.gf3 = new System.Windows.Forms.Button();
-            this.gf4 = new System.Windows.Forms.Button();
-            this.gf5 = new System.Windows.Forms.Button();
-            this.gf6 = new System.Windows.Forms.Button();
+            this.paymentsPanel = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.totalBox = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.closeParkingSlot = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.paymentsPanel = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button9 = new System.Windows.Forms.Button();
-            this.totalBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.parkingslotsPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.paymentsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
@@ -207,11 +199,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(17, 153);
+            this.label6.Location = new System.Drawing.Point(50, 153);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 20);
+            this.label6.Size = new System.Drawing.Size(53, 20);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Parking Area Slots";
+            this.label6.Text = "Floors";
             // 
             // parkingslotsPanel
             // 
@@ -219,7 +211,6 @@
             this.parkingslotsPanel.Controls.Add(this.button5);
             this.parkingslotsPanel.Controls.Add(this.closeParkingSlot);
             this.parkingslotsPanel.Controls.Add(this.button4);
-            this.parkingslotsPanel.Controls.Add(this.label7);
             this.parkingslotsPanel.Controls.Add(this.button3);
             this.parkingslotsPanel.Controls.Add(this.flowLayoutPanel1);
             this.parkingslotsPanel.Controls.Add(this.gFloorParkingBTN);
@@ -229,100 +220,78 @@
             this.parkingslotsPanel.TabIndex = 16;
             this.parkingslotsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.parkingslotsPanel_Paint);
             // 
-            // label7
+            // paymentsPanel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label7.Location = new System.Drawing.Point(161, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(410, 39);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Ground Floor Parking Slot";
+            this.paymentsPanel.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.paymentsPanel.Controls.Add(this.label11);
+            this.paymentsPanel.Controls.Add(this.totalBox);
+            this.paymentsPanel.Controls.Add(this.button9);
+            this.paymentsPanel.Controls.Add(this.dataGridView3);
+            this.paymentsPanel.Controls.Add(this.label10);
+            this.paymentsPanel.Controls.Add(this.button8);
+            this.paymentsPanel.Location = new System.Drawing.Point(12, 20);
+            this.paymentsPanel.Name = "paymentsPanel";
+            this.paymentsPanel.Size = new System.Drawing.Size(610, 416);
+            this.paymentsPanel.TabIndex = 22;
             // 
-            // flowLayoutPanel1
+            // label11
             // 
-            this.flowLayoutPanel1.Controls.Add(this.gf1);
-            this.flowLayoutPanel1.Controls.Add(this.gf2);
-            this.flowLayoutPanel1.Controls.Add(this.gf3);
-            this.flowLayoutPanel1.Controls.Add(this.gf4);
-            this.flowLayoutPanel1.Controls.Add(this.gf5);
-            this.flowLayoutPanel1.Controls.Add(this.gf6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 96);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(418, 275);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(261, 270);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Total:";
             // 
-            // gf1
+            // totalBox
             // 
-            this.gf1.BackColor = System.Drawing.Color.Lime;
-            this.gf1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf1.Location = new System.Drawing.Point(3, 3);
-            this.gf1.Name = "gf1";
-            this.gf1.Size = new System.Drawing.Size(131, 131);
-            this.gf1.TabIndex = 0;
-            this.gf1.Text = "GF-1";
-            this.gf1.UseVisualStyleBackColor = false;
-            this.gf1.Click += new System.EventHandler(this.gf1_Click);
+            this.totalBox.Location = new System.Drawing.Point(301, 268);
+            this.totalBox.Name = "totalBox";
+            this.totalBox.ReadOnly = true;
+            this.totalBox.Size = new System.Drawing.Size(100, 20);
+            this.totalBox.TabIndex = 25;
+            this.totalBox.TextChanged += new System.EventHandler(this.totalBox_TextChanged);
             // 
-            // gf2
+            // button9
             // 
-            this.gf2.BackColor = System.Drawing.Color.Lime;
-            this.gf2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf2.Location = new System.Drawing.Point(140, 3);
-            this.gf2.Name = "gf2";
-            this.gf2.Size = new System.Drawing.Size(131, 131);
-            this.gf2.TabIndex = 1;
-            this.gf2.Text = "GF-2";
-            this.gf2.UseVisualStyleBackColor = false;
-            this.gf2.Click += new System.EventHandler(this.gf2_Click);
+            this.button9.Location = new System.Drawing.Point(50, 268);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(108, 39);
+            this.button9.TabIndex = 22;
+            this.button9.Text = "Total Payment";
+            this.button9.UseVisualStyleBackColor = true;
             // 
-            // gf3
+            // dataGridView3
             // 
-            this.gf3.BackColor = System.Drawing.Color.Lime;
-            this.gf3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf3.Location = new System.Drawing.Point(277, 3);
-            this.gf3.Name = "gf3";
-            this.gf3.Size = new System.Drawing.Size(131, 131);
-            this.gf3.TabIndex = 2;
-            this.gf3.Text = "GF-3";
-            this.gf3.UseVisualStyleBackColor = false;
-            this.gf3.Click += new System.EventHandler(this.gf3_Click);
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(47, 84);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(358, 170);
+            this.dataGridView3.TabIndex = 24;
             // 
-            // gf4
+            // label10
             // 
-            this.gf4.BackColor = System.Drawing.Color.Lime;
-            this.gf4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf4.Location = new System.Drawing.Point(3, 140);
-            this.gf4.Name = "gf4";
-            this.gf4.Size = new System.Drawing.Size(131, 131);
-            this.gf4.TabIndex = 3;
-            this.gf4.Text = "GF-4";
-            this.gf4.UseVisualStyleBackColor = false;
-            this.gf4.Click += new System.EventHandler(this.gf4_Click);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(41, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(163, 31);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "PAYMENTS";
             // 
-            // gf5
+            // button8
             // 
-            this.gf5.BackColor = System.Drawing.Color.Lime;
-            this.gf5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf5.Location = new System.Drawing.Point(140, 140);
-            this.gf5.Name = "gf5";
-            this.gf5.Size = new System.Drawing.Size(131, 131);
-            this.gf5.TabIndex = 4;
-            this.gf5.Text = "GF-5";
-            this.gf5.UseVisualStyleBackColor = false;
-            this.gf5.Click += new System.EventHandler(this.gf5_Click);
-            // 
-            // gf6
-            // 
-            this.gf6.BackColor = System.Drawing.Color.Lime;
-            this.gf6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.gf6.Location = new System.Drawing.Point(277, 140);
-            this.gf6.Name = "gf6";
-            this.gf6.Size = new System.Drawing.Size(131, 131);
-            this.gf6.TabIndex = 5;
-            this.gf6.Text = "GF-6";
-            this.gf6.UseVisualStyleBackColor = false;
-            this.gf6.Click += new System.EventHandler(this.gf6_Click);
+            this.button8.BackColor = System.Drawing.Color.Red;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(574, 15);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(25, 24);
+            this.button8.TabIndex = 23;
+            this.button8.Text = "X";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // closeParkingSlot
             // 
@@ -336,6 +305,13 @@
             this.closeParkingSlot.Text = "X";
             this.closeParkingSlot.UseVisualStyleBackColor = false;
             this.closeParkingSlot.Click += new System.EventHandler(this.closeParkingSlot_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 39);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(418, 369);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
             // button2
             // 
@@ -387,79 +363,6 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "View Payments";
             // 
-            // paymentsPanel
-            // 
-            this.paymentsPanel.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.paymentsPanel.Controls.Add(this.label11);
-            this.paymentsPanel.Controls.Add(this.totalBox);
-            this.paymentsPanel.Controls.Add(this.button9);
-            this.paymentsPanel.Controls.Add(this.dataGridView3);
-            this.paymentsPanel.Controls.Add(this.label10);
-            this.paymentsPanel.Controls.Add(this.button8);
-            this.paymentsPanel.Location = new System.Drawing.Point(24, 20);
-            this.paymentsPanel.Name = "paymentsPanel";
-            this.paymentsPanel.Size = new System.Drawing.Size(610, 416);
-            this.paymentsPanel.TabIndex = 22;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Red;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Location = new System.Drawing.Point(574, 15);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(25, 24);
-            this.button8.TabIndex = 23;
-            this.button8.Text = "X";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(41, 40);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(163, 31);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "PAYMENTS";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(47, 84);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(358, 170);
-            this.dataGridView3.TabIndex = 24;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(50, 268);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(108, 39);
-            this.button9.TabIndex = 22;
-            this.button9.Text = "Total Payment";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // totalBox
-            // 
-            this.totalBox.Location = new System.Drawing.Point(301, 268);
-            this.totalBox.Name = "totalBox";
-            this.totalBox.ReadOnly = true;
-            this.totalBox.Size = new System.Drawing.Size(100, 20);
-            this.totalBox.TabIndex = 25;
-            this.totalBox.TextChanged += new System.EventHandler(this.totalBox_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(261, 270);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Total:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +394,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.parkingslotsPanel.ResumeLayout(false);
             this.parkingslotsPanel.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.paymentsPanel.ResumeLayout(false);
             this.paymentsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -520,14 +422,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel parkingslotsPanel;
         private System.Windows.Forms.Button closeParkingSlot;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button gf1;
-        private System.Windows.Forms.Button gf2;
-        private System.Windows.Forms.Button gf3;
-        private System.Windows.Forms.Button gf4;
-        private System.Windows.Forms.Button gf5;
-        private System.Windows.Forms.Button gf6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button6;
